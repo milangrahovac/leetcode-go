@@ -52,8 +52,6 @@
 
 package main
 
-import "fmt"
-
 func minimumChairs(s string) int {
 	currentGuests := 0
 	maxGuests := 0
@@ -69,16 +67,4 @@ func minimumChairs(s string) int {
 		}
 	}
 	return maxGuests
-}
-
-func main() {
-
-	a := minimumChairs("EEEEEEE")    //  return 7
-	b := minimumChairs("ELELEEL")    //  return 2
-	c := minimumChairs("ELEELEELLL") // return 3
-
-	fmt.Printf("a: %v\n", a)
-	fmt.Printf("b: %v\n", b)
-	fmt.Printf("c: %v\n", c)
-
 }
