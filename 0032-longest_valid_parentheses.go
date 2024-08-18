@@ -37,8 +37,6 @@ func longestValidParentheses(s string) int {
 					total -= 1
 				}
 
-				fmt.Printf("x: %d, s[x]: %c, n: %d, s[n]: %c, total: %d\n", x, s[x], n, s[n], total)
-
 				if total == 0 {
 					if maxValidParentheses < n-x+1 {
 						maxValidParentheses = n - x + 1
