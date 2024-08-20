@@ -50,7 +50,6 @@
 // s consists only of the letters 'E' and 'L'.
 // s represents a valid sequence of entries and exits.
 
-package main
 
 func minimumChairs(s string) int {
 	currentGuests := 0
