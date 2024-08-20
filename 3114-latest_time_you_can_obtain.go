@@ -21,44 +21,49 @@
 // All characters except s[2] are digits or "?" characters.
 // The input is generated such that there is at least one time between "00:00" and "11:59" that you can obtain after replacing the "?" characters.
 
-package main
-
-import (
-	"fmt"
-)
 
 func findLatestTime(s string) string {
 	var result string
 
-	for x, char := range s {
-		if char != '?' {
-			result += string(char)
-		} else {
-			if x == 0 {
+	if string(s[0]) == "?" && string(s[1]) == "?" {
+		result += "11"
+	} else {
+		if string(s[0]) == "?" {
+			if string(s[1]) >= "2" {
+				result += "0"
+			} else {
 				result += "1"
-			} else if x == 1 {
-				if result[0] == '0' {
-					result += "9"
-				} else if result[0] == '1' {
-					result += "1"
-				}
-			} else if x == 3 {
-				result += "5"
-			} else if x == 4 {
+			}
+		} else {
+			result += string(s[0])
+		}
+
+		if string(s[1]) == "?" {
+			if string(s[0]) == "1" {
+				result += "1"
+			} else {
 				result += "9"
 			}
+		} else {
+			result += string(s[1])
 		}
 	}
 
+	result += ":"
+
+	if string(s[3]) == "?" {
+		result += "5"
+	} else {
+		result += string(s[3])
+
+	}
+
+	if string(s[4]) == "?" {
+		result += "9"
+	} else {
+		result += string(s[4])
+
+	}
+
 	return result
-}
-
-func main() {
-
-	a := findLatestTime("1?:?4") //  Output: "11:54"
-	b := findLatestTime("0?:5?") //  Output: "09:59"
-
-	fmt.Printf("a: %v\n", a)
-	fmt.Printf("b: %v\n", b)
-
 }
